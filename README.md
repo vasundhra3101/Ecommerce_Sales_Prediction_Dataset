@@ -142,6 +142,4 @@ The Linear Regression model provides a basic prediction approach. However, addit
 
 ---
 
-## Author
 
-**Vasundhra**
