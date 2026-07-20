@@ -1,164 +1,169 @@
-# 🛒 E-Commerce Sales Forecasting using Linear Regression
+# E-Commerce Sales Forecasting with Linear Regression
 
-## 📌 Project Overview
+## Project Overview
 
-This project focuses on predicting e-commerce sales using Machine Learning. A Linear Regression model is built to analyze historical sales data and forecast sales amounts based on order information such as quantity sold and purchase date.
+This project focuses on analyzing Amazon e-commerce sales data and predicting sales amounts using a Linear Regression machine learning model.
 
-The project demonstrates the complete machine learning workflow, including data preprocessing, exploratory data analysis (EDA), feature engineering, model training, prediction, and evaluation.
+The project includes data loading, data cleaning, exploratory data analysis, data visualization, feature selection, model training, prediction, and model evaluation.
 
----
+## Objectives
 
-## 🎯 Objectives
+* Load and explore the Amazon sales dataset.
+* Identify and handle missing values.
+* Remove duplicate and unnecessary data.
+* Convert and extract useful date features.
+* Analyze sales trends and product categories.
+* Visualize order status and quantity distribution.
+* Build a Linear Regression model.
+* Predict sales amounts.
+* Evaluate model performance using regression metrics.
 
-- Analyze historical e-commerce sales data.
-- Clean and preprocess the dataset.
-- Perform exploratory data analysis (EDA).
-- Build a Linear Regression model to forecast sales.
-- Evaluate model performance using regression metrics.
-- Visualize actual vs. predicted sales.
+## Dataset
 
----
-
-## 📂 Dataset
-
-**Dataset Name:** Amazon Sale Report Dataset
+The dataset used in this project is the **Amazon Sale Report.csv** dataset.
 
 The dataset contains information such as:
 
-- Order ID
-- Date
-- Product Category
-- Quantity (Qty)
-- Sales Amount
-- Order Status
-- Fulfilment
-- Sales Channel
-- Customer Location
-- B2B Orders
-- Courier Status
+* Order ID
+* Date
+* Order Status
+* Fulfilment
+* Sales Channel
+* Product Category
+* Product Size
+* Quantity
+* Sales Amount
+* Shipping City
+* Shipping State
+* Shipping Country
 
----
+## Technologies Used
 
-## 🛠️ Technologies Used
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Scikit-learn
+* Jupyter Notebook / Google Colab
 
-- Python
-- Google Colab
-- Pandas
-- NumPy
-- Matplotlib
-- Scikit-learn
+## Project Workflow
 
----
+### 1. Data Loading
 
-## 📊 Machine Learning Workflow
+The dataset is loaded using the Pandas library.
 
-1. Import Dataset
-2. Data Cleaning
-3. Feature Engineering
-4. Exploratory Data Analysis (EDA)
-5. Feature Selection
-6. Train-Test Split
-7. Linear Regression Model
-8. Model Prediction
-9. Model Evaluation
-10. Data Visualization
+```python
+df = pd.read_csv("Amazon Sale Report.csv")
+```
 
----
+### 2. Data Exploration
 
-## 📈 Features Used
+The dataset is explored using:
 
-The model uses the following features:
+* `df.head()`
+* `df.info()`
+* `df.describe()`
+* `df.isnull().sum()`
 
-- Quantity (Qty)
-- Month
-- Day
+### 3. Data Cleaning
 
-**Target Variable**
+The following preprocessing steps are performed:
 
-- Amount (Sales)
+* Removed duplicate rows.
+* Removed the unnecessary `Unnamed: 22` column.
+* Removed rows with missing sales amounts.
+* Converted the `Date` column into datetime format.
 
----
+### 4. Feature Engineering
 
-## 📉 Model
+The following features are extracted from the date:
 
-Algorithm Used:
+* Year
+* Month
+* Day
 
-- Linear Regression
+These features are used for further analysis and machine learning.
 
----
+### 5. Exploratory Data Analysis
 
-## 📊 Evaluation Metrics
+The following visualizations are created:
+
+* Monthly Sales Trend
+* Top 10 Product Categories by Sales
+* Order Status Distribution
+* Quantity Distribution
+
+### 6. Machine Learning Model
+
+A Linear Regression model is used for sales prediction.
+
+#### Features Used
+
+* Quantity (`Qty`)
+* Month (`Month`)
+* Day (`Day`)
+
+#### Target Variable
+
+* Sales Amount (`Amount`)
+
+The dataset is divided into:
+
+* 80% Training Data
+* 20% Testing Data
+
+### 7. Model Evaluation
 
 The model is evaluated using:
 
-- Mean Absolute Error (MAE)
-- Mean Squared Error (MSE)
-- Root Mean Squared Error (RMSE)
-- R² Score
+* Mean Absolute Error (MAE)
+* Mean Squared Error (MSE)
+* Root Mean Squared Error (RMSE)
+* R² Score
 
----
+## Results
 
-## 📷 Visualizations
+The model generates predictions for sales amounts based on the selected features.
 
-The project includes:
+Example evaluation metrics:
 
-- Monthly Sales Trend
-- Top Product Categories
-- Order Status Distribution
-- Quantity Distribution
-- Actual vs Predicted Sales Scatter Plot
+* **MAE:** 207.41
+* **MSE:** 70778.41
+* **RMSE:** 266.04
+* **R² Score:** 0.0036
 
----
+The low R² score indicates that the selected features alone do not explain most of the variation in sales amount. This suggests that additional features such as product category, price, fulfilment method, customer location, and order status could improve the prediction performance.
 
-## 📁 Project Structure
+## Visualizations
 
-```
-E-Commerce-Sales-Forecasting/
-│
-├── dataset/
-│   ├── Amazon Sale Report.csv
-│
-├── notebooks/
-│   └── sales_forecasting.ipynb
-│
-├── README.md
-└── requirements.txt
-```
+The project generates the following visualizations:
 
----
+1. Monthly Sales Trend
+2. Top 10 Product Categories by Sales
+3. Order Status Distribution
+4. Quantity Distribution
+5. Actual vs Predicted Sales
 
-## ▶️ How to Run
+## Conclusion
 
-1. Clone the repository.
+This project demonstrates the complete machine learning workflow for e-commerce sales analysis and prediction.
 
-```
-git clone https://github.com/yourusername/E-Commerce-Sales-Forecasting.git
-```
+The Linear Regression model provides a basic prediction approach. However, the model performance can be improved by using additional relevant features and advanced machine learning algorithms such as:
 
-2. Open the project in Google Colab or Jupyter Notebook.
+* Decision Tree Regression
+* Random Forest Regression
+* Gradient Boosting
+* XGBoost
 
-3. Install dependencies.
+This project provides a foundation for developing a more accurate e-commerce sales forecasting system.
 
-```
-pip install pandas numpy matplotlib scikit-learn
-```
+## Future Improvements
 
-4. Upload the dataset.
+* Add more important features to the model.
+* Perform advanced feature engineering.
+* Handle categorical variables using encoding techniques.
+* Compare multiple machine learning algorithms.
+* Perform hyperparameter tuning.
+* Improve sales forecasting accuracy.
+* Deploy the model as a web application.
 
-5. Run all notebook cells sequentially.
-
----
-
-## 📌 Results
-
-The Linear Regression model was trained on the Amazon Sales dataset and evaluated using standard regression metrics. The project demonstrates how machine learning can be applied to analyze historical sales data and generate sales predictions.
-
----
-
-## 🚀 Future Improvements
-
-- Use Random Forest Regressor for better accuracy.
-- Implement XGBoost for improved forecasting.
-- Add sales forecasting dashboard using Streamlit.
-- Deploy the model as a web application.
-- Include real-time sales prediction.
